@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { expenseApi } from "../api/expenseApi";
+import { expenseApi } from "../expenseApi.js";
 import LoadingSpinner from "./LoadingSpinner";
 import ErrorMessage from "./ErrorMessage";
 
@@ -12,8 +12,18 @@ export default function ExpenseList() {
     useEffect(() => {
         expenseApi
             .getAll()
-            .then((data) => setExpenses(data.data ?? data))
-            .catch(() => setError("Could not load expenses. Is the backend running?"))
+            .then((data) => {
+                const result = data.data ?? data;
+
+                if (Array.isArray(result)) {
+                    setExpenses(result);
+                } else {
+                    setExpenses([]);
+                }
+            })
+            .catch(() => {
+                setExpenses(null)
+            })
             .finally(() => setLoading(false));
     }, []);
 

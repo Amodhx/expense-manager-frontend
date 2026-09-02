@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { expenseApi } from "../api/expenseApi";
+import { expenseApi } from "../expenseApi.js";
 import ErrorMessage from "./ErrorMessage";
 
 const TYPES = ["travel", "food", "other"];
