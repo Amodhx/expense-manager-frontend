@@ -2,9 +2,9 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import { vi, describe, it, expect } from "vitest";
 import ExpenseList from "../ExpenseList";
-import { expenseApi } from "../../expenseApi";
+import { expenseApi } from "../../expenseApi.js";
 
-vi.mock("../../api/expenseApi");
+vi.mock("../../expenseApi.js");
 
 describe("ExpenseList", () => {
     it("re-fetches with the selected type when the filter changes", async () => {

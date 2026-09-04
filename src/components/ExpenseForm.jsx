@@ -55,7 +55,7 @@ export default function ExpenseForm() {
                 </div>
 
                 <div>
-                    <label htmlFor="cost" className="block font-medium mb-1">Cost (£)</label>
+                    <label htmlFor="cost" className="block font-medium mb-1">Cost (LKR)</label>
                     <input
                         id="cost" name="cost" type="number" step="0.01" value={form.cost} onChange={handleChange}
                         className="w-full border rounded p-2" aria-invalid={!!errors.cost}

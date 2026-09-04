@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { expenseApi } from "../api/expenseApi";
+import { expenseApi } from "../expenseApi";
 import LoadingSpinner from "./LoadingSpinner";
 import ErrorMessage from "./ErrorMessage";
 
@@ -73,10 +73,14 @@ export default function ExpenseList() {
                                     <div>
                                         <p className="font-medium">{e.description}</p>
                                         <p className="text-sm text-gray-500">
-                                            {e.date} · <span className="capitalize">{e.expense_type}</span>
+                                            {e.date} ·{" "}
+                                            <span className="capitalize">{e.expense_type}</span>
                                         </p>
                                     </div>
-                                    <span className="font-semibold">£{Number(e.cost).toFixed(2)}</span>
+
+                                    <span className="font-semibold">
+                LKR {Number(e.cost).toFixed(2)}
+            </span>
                                 </Link>
                             </li>
                         ))}
